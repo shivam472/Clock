@@ -1,0 +1,87 @@
+
+body{
+    font-family: Gotham Rounded, sans-serif;
+    font-size: larger;
+    font-weight: 700;
+    background: linear-gradient(to right, hsl(200, 100%, 50%), hsl(175,100%,50%));
+    /*the linear-gadient() function creates smooth transition between multiple background colors*/
+    /* background: linear-gradient(direction, color-stop1, color-stop2, ...); */
+    /* direction defines a starting point and a direction (or an angle) along with the gradient effect. */
+    /*Color stops are the colors you want to render smooth transitions among. This value consists of a 
+    color value, followed by an optional stop position (a percentage between 0% and 100% or a length along 
+    the gradient axis).*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.clock{
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255,255,255,.75);
+    border-radius: 50%;
+    border: 8px solid black;
+    box-shadow: 5px 10px 20px 1px rgba(51, 50, 50, 0.8); 
+    position: relative;
+}
+.clock .hour{
+    --rotation: 0; /* variable declaration in css */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+.clock .hour1{ --rotation: 30deg; } /*Using the rotation property*/
+.clock .hour2{ --rotation: 60deg; }
+.clock .hour3{ --rotation: 90deg; }
+.clock .hour4{ --rotation: 120deg; }
+.clock .hour5{ --rotation: 150deg; }
+.clock .hour6{ --rotation: 180deg; }
+.clock .hour7{ --rotation: 210deg; }
+.clock .hour8{ --rotation: 240deg; }
+.clock .hour9{ --rotation: 270deg; }
+.clock .hour10{ --rotation: 300deg; }
+.clock .hour11{ --rotation: 330deg; } /* 12 is by default set to 0deg or 360deg*/
+
+.clock .hand{
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border: 1px solid white;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translate(-50%) rotate(calc(var(--rotation) * 1deg)); /*translate property translate any object by the given percentage
+                                of its width*/ 
+}
+.clock .dot{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 5px 10px 20px 1px rgba(51, 50, 50, 0.8);
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.clock .hand.second{
+    width: 3px;
+    height: 45%;
+    background-color: red;
+}
+.clock .hand.minute{
+    width: 7px;
+    height: 40%;
+    background-color: black;
+}
+.clock .hand.hour{
+    width: 10px;
+    height: 35%;
+    background-color: black;
+}
